@@ -2,90 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>My test page</title>
-    <style>
-      body
-	{  
-	   background-color: yellow;
-	}
-	
-	#Pytanie1
-	{
-		background-color: lightblue;
-		color: green;
-		margin: 20px;
-		padding:10px;
-		text-align: center;
-	}
-	
-	#Pytanie2
-	{
-		width: 1000px;
-		margin-top: 10px;
-		margin-bottom:10px;
-	}
-	
-	#Dod
-	{
-		float:left;
-	}
-	
-	#Odej
-	{
-		margin-left: 100px;
-		float:left;
-	}
-	
-	#footer
-	{
-		clear:both;
-		background-color:black;
-		color:white;
-		text-align:center;
-		font-size:40px;
-	}
-	
-    </style>
-	<script>
-	   function sprawdzZwierze()
-	   {
-			var text = document.getElementById('zwierze').value;
-			if(text.toLowerCase() == 'kot')
-				document.getElementById('Odpowiedz').innerHTML = 'Dobrze';
-			else 
-				document.getElementById('Odpowiedz').innerHTML = 'Źle';
-	   }
-		
-		function sprawdzDodawanie()
-		{
-			if(document.getElementById('dodawanie').value == '4') 
-			{
-				document.getElementById('WynikDodawania').innerHTML = 'Tak wynik to 4';
-				document.getElementById('WynikDodawania').style.color = "green";
-			}
-			else
-			{
-				document.getElementById('WynikDodawania').innerHTML = 'Zły wynik';
-				document.getElementById('WynikDodawania').style.color = "red";
-			}
-			
-		}
-		
-		function sprawdzOdejmowanie()
-		{
-			if(document.getElementById('odejmowanie').value == '5') 
-			{
-				document.getElementById('WynikOdejmowania').innerHTML = 'Tak wynik to 5';
-				document.getElementById('WynikDodawania').style.color = "green";
-			}
-			else
-			{
-				document.getElementById('WynikOdejmowania').innerHTML = 'Zły wynik';
-				document.getElementById('WynikDodawania').style.color = "red";
-			}
-		}
-		
-	</script>
+	<title>My test page</title>
+	<link rel="stylesheet" type="text/css" href="styles/styles.css">
+	<script src="scripts/app.js"></script>
+
   </head>
   <body>
 	<h1> Strona sprawdzająca poziom IQ! </h1><hr/>
@@ -98,7 +18,7 @@
 	<input type="text" id="zwierze">
 	<input id = "pytanie1" style="margin-left: 10px;" type="submit" onclick="sprawdzZwierze()" value = "Sprawdz Zwierze"/>
 	
-	<p id = "Odpowiedz"></p>
+	<span id = "Odpowiedz"></span>
 	</div>
 	
 	<hr/>
@@ -120,6 +40,8 @@
 		</div>
 		
 	</div>
+	
+
 	
 	<div id = "footer">
 		Stronę przygotował Jakub Bergmann!

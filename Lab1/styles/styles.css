@@ -1,0 +1,40 @@
+body
+{  
+   background-color: yellow;
+}
+
+#Pytanie1
+{
+    background-color: lightblue;
+    color: green;
+    margin: 20px;
+    padding:10px;
+    text-align: center;
+}
+
+#Pytanie2
+{
+    width: 1000px;
+    margin-top: 10px;
+    margin-bottom:10px;
+}
+
+#Dod
+{
+    float:left;
+}
+
+#Odej
+{
+    margin-left: 100px;
+    float:left;
+}
+
+#footer
+{
+    clear:both;
+    background-color:black;
+    color:white;
+    text-align:center;
+    font-size:40px;
+}
