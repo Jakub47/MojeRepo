@@ -5,47 +5,109 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Your Website</title>
+
+	<style>
+		.imgpr
+		{
+			width: 400px;
+			height: 400px;
+		}
+		.imgpr:hover
+		{
+			cursor: pointer;
+			background:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(myimage.png);
+
+		}
+		table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+	}
+th, td {
+    padding: 5px;
+    text-align: left;    
+}
+	</style>	
+	<script src="scripts/jquery.js"></script>
+
+	<script>
+
+		$("#a4").click(function() 
+		{
+			wprowadzZmiany("A4-5300","2","3.4GHz","85W");
+		});
+
+		$("#i3").click(function() 
+		{
+			alert('das');
+			wprowadzZmiany("i3-2120","2","3.3GHz","65W");
+		});
+
+		$("#t4").click(function() 
+		{
+			wprowadzZmiany("Tegra 4","4","1.9GHz","20W");
+		});
+
+
+		function wprowadzZmiany(name,core,clock,tdp,ciekawostka)
+		{
+			$('#Name').text(name);
+			$('#Core').text(core);
+			$('#Clock').text(clock);
+			$('#TDP').text(tdp);
+			$('#Ciekawostka').text(ciekawostka);
+		}
+	</script>
 </head>
 
 <body>
 
-    <header style="width: 1300px;">
-		
-		<div style="float: left; text-align: center;">
-		
-		<a href="/index.html">
-            <img src="images/hardware.jpg" width="700" height="420" alt="hardware">
-		</a>
-		
-		</div>
+    <header style="width: 1300px;">	
+		<nav style="float:left;">
 
-        <nav style="float:left;">
-          <ul style="list-style-type: none;">
-            <li><a href="#">Strona Główna</a></li>
-            <li><a href="lekcja-1">Lekcja 1</a></li>
-            <li><a href="lekcja-2">Lekcja 2</a></li>
-          </ul>
-		  </nav>
-		
+			<div onclick="wprowadzZmiany('A4-5300','2','3.4GHz','85W', 'Dwurdzeniowy procesor 64-bitowy przeznaczony dla komputerów stacjonarnych, o częstotliwości taktowania 3.4 GHz (z technologią turbo do 3.6 GHz). Posiada 1 MB pamięci podręcznej L2 oraz wykorzystuje gniazdo Socket FM2.')" id="a4" style="float:left;">
+				<img class="imgpr" src="images/amd_a4_5300.jpg" >
+			</div>
+
+			<div onclick="wprowadzZmiany('i3-2120','2','3.3GHz','65W', 'The Intel Core i3-2120 is based on the 32nm ‘Sandy Bridge’ architecture and is a 3.3GHz dual-core processor with Hyper-Threading. Read more at http://www.legitreviews.com/intel-core-i3-2120-3-3ghz-sandy-bridge-processor-review_1650#0MkThmWaD4sOZZBe.99');" id = "i3" style="float:left;">
+				<img class="imgpr" src="images/inteli3_2120.jpg">
+			</div>
+
+			<div onclick="wprowadzZmiany('Tegra 4','4','1.9GHz','20W', 'The Tegra 4 was a mobile integrated graphics solution by NVIDIA, launched in August 2013. Built on the 28 nm process, and based on the Tegra 4 graphics processor, in its Tegra 4 variant, the device does not support DirectX')" id = "t4" style="float:left;">
+				<img class="imgpr" src="images/tegra4-638014854469d885ca461b856.png">
+			</div>
+		</nav>	
 		<div style="clear:both;"></div>
+		  
     </header>
 
     <main>
-        Główna część strony
+			<table style="width:100%">
+					<tr>
+					  <th>Name</th>
+					  <td id = "Name">Kliknij w obrazek</td>
+					</tr>
+					<tr>
+					  <th>Cores:</th>
+					  <td id = "Core">Kliknij w obrazek</td>
+					</tr>
+					<tr>
+						<th>Clock speed</th>
+						<td id = "Clock">Kliknij w obrazek</td>
+					</tr>
+					<tr>
+						<th >TDP</th>
+						<td id = "TDP">Kliknij w obrazek</td>
+					</tr>
+			</table>
 
-        <article>
-            Pare komentarzy użytkowników :
-            kamil : Fajna strona ...!
-        </article>
+			<aside>
+				<p id = "Ciekawostka">Ciekawostka[Proszę kliknąć w obrazek]</p>	
+			</aside>
+
+			<a href="index.html">Powrot do strony glownej</a>
     </main>
     
-    <aside>
-        <ul>
-            <li><a href="#">Strona Główna</a></li>
-            <li><a href="lekcja-1">Lekcja 1</a></li>
-            <li><a href="lekcja-2">Lekcja 2</a></li>
-        </ul>
-    </aside>
+    
 
     <footer>
             <p>Copyright 2009 Jakub Bergmann</p>
