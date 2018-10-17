@@ -3,8 +3,127 @@
   <head>
     <meta charset="utf-8">
     <title>My test page</title>
+    <style>
+      body
+	{  
+	   background-color: yellow;
+	}
+	
+	#Pytanie1
+	{
+		background-color: lightblue;
+		color: green;
+		margin: 20px;
+		padding:10px;
+		text-align: center;
+	}
+	
+	#Pytanie2
+	{
+		width: 1000px;
+		margin-top: 10px;
+		margin-bottom:10px;
+	}
+	
+	#Dod
+	{
+		float:left;
+	}
+	
+	#Odej
+	{
+		margin-left: 100px;
+		float:left;
+	}
+	
+	#footer
+	{
+		clear:both;
+		background-color:black;
+		color:white;
+		text-align:center;
+		font-size:40px;
+	}
+	
+    </style>
+	<script>
+	   function sprawdzZwierze()
+	   {
+			var text = document.getElementById('zwierze').value;
+			if(text.toLowerCase() == 'kot')
+				document.getElementById('Odpowiedz').innerHTML = 'Dobrze';
+			else 
+				document.getElementById('Odpowiedz').innerHTML = 'Źle';
+	   }
+		
+		function sprawdzDodawanie()
+		{
+			if(document.getElementById('dodawanie').value == '4') 
+			{
+				document.getElementById('WynikDodawania').innerHTML = 'Tak wynik to 4';
+				document.getElementById('WynikDodawania').style.color = "green";
+			}
+			else
+			{
+				document.getElementById('WynikDodawania').innerHTML = 'Zły wynik';
+				document.getElementById('WynikDodawania').style.color = "red";
+			}
+			
+		}
+		
+		function sprawdzOdejmowanie()
+		{
+			if(document.getElementById('odejmowanie').value == '5') 
+			{
+				document.getElementById('WynikOdejmowania').innerHTML = 'Tak wynik to 5';
+				document.getElementById('WynikDodawania').style.color = "green";
+			}
+			else
+			{
+				document.getElementById('WynikOdejmowania').innerHTML = 'Zły wynik';
+				document.getElementById('WynikDodawania').style.color = "red";
+			}
+		}
+		
+	</script>
   </head>
   <body>
-    <img src="images/m.jpg" alt="My test image">
+	<h1> Strona sprawdzająca poziom IQ! </h1><hr/>
+	
+	<div id="Pytanie1">
+	<h2>Pytanie 1 : Co to za zwierze?</h2>
+	
+    <img src="images/m.jpg" width="200" height="200" alt="Kot">
+	
+	<input type="text" id="zwierze">
+	<input id = "pytanie1" style="margin-left: 10px;" type="submit" onclick="sprawdzZwierze()" value = "Sprawdz Zwierze"/>
+	
+	<p id = "Odpowiedz"></p>
+	</div>
+	
+	<hr/>
+	
+	<h2> Pytanie 2 : Ile wynosi?</h2>
+	
+	<div id = "Pytanie2">
+		
+		<div id = "Dod">
+		2 + 2 =  <input type="text" id="dodawanie">
+		<input id = "dodaj" style="margin-left: 10px;" type="submit" onclick="sprawdzDodawanie()" value = "Sprawdz Dodawanie"/> 
+		<span id = "WynikDodawania" class = "wy"></span>
+		</div>
+		
+		<div id = "Odej">
+		8 - 3 =  <input type="text" id="odejmowanie">
+		<input id = "odejmij" style="margin-left: 10px;" type="submit" onclick="sprawdzOdejmowanie()" value = "Sprawdz Odejmowanie"/>
+		<span id = "WynikOdejmowania" class = "wy"></span>
+		</div>
+		
+	</div>
+	
+	<div id = "footer">
+		Stronę przygotował Jakub Bergmann!
+	</div>
+	
   </body>
 </html>
