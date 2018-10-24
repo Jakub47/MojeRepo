@@ -34,11 +34,11 @@ th, td {
 		$("#a4").click(function() 
 		{
 			wprowadzZmiany("A4-5300","2","3.4GHz","85W");
+			
 		});
 
 		$("#i3").click(function() 
 		{
-			alert('das');
 			wprowadzZmiany("i3-2120","2","3.3GHz","65W");
 		});
 
@@ -50,6 +50,17 @@ th, td {
 
 		function wprowadzZmiany(name,core,clock,tdp,ciekawostka)
 		{
+			if(name == 'A4-5300')
+			{
+				$('#Tabela').css('background-color', 'red');
+				
+			}
+			if(name == 'i3-2120')
+				$('#Tabela').css('background-color', 'lightblue');
+			
+			if(name == 'Tegra 4')
+				$('#Tabela').css('background-color', 'lightgreen');
+			
 			$('#Name').text(name);
 			$('#Core').text(core);
 			$('#Clock').text(clock);
@@ -60,8 +71,12 @@ th, td {
 </head>
 
 <body>
-
-    <header style="width: 1300px;">	
+	
+    <header style="width: 1300px; height: 150mm;">	
+		<h1 style = "background-color: red; padding: 10px; text-align: center; font-size: 33px;">Procesory</h1>
+		<blockquote style = "text-align: right; font-style: italic;">
+			It starts with more powerful processors. Where it goes is up to you <hr/>
+		</blockquote>
 		<nav style="float:left;">
 
 			<div onclick="wprowadzZmiany('A4-5300','2','3.4GHz','85W', 'Dwurdzeniowy procesor 64-bitowy przeznaczony dla komputerów stacjonarnych, o częstotliwości taktowania 3.4 GHz (z technologią turbo do 3.6 GHz). Posiada 1 MB pamięci podręcznej L2 oraz wykorzystuje gniazdo Socket FM2.')" id="a4" style="float:left;">
@@ -80,8 +95,9 @@ th, td {
 		  
     </header>
 
+	<hr/>
     <main>
-			<table style="width:100%">
+			<table style="width:100%;" id = "Tabela">
 					<tr>
 					  <th>Name</th>
 					  <td id = "Name">Kliknij w obrazek</td>
