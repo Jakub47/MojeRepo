@@ -7,6 +7,9 @@
 	<title>Your Website</title>
 
 	<style>
+
+		#text:focus { color: white; background-color: black }
+
 		.imgpr
 		{
 			width: 400px;
@@ -25,11 +28,20 @@
 th, td {
     padding: 5px;
     text-align: left;    
-}
+}	
+	  tr.wyroznij
+	  {
+		  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+		  font-size: 4mm;
+	  }
 	</style>	
 	<script src="scripts/jquery.js"></script>
 
 	<script>
+		$(function() 
+		{
+			
+		});
 
 		$("#a4").click(function() 
 		{
@@ -46,20 +58,61 @@ th, td {
 		{
 			wprowadzZmiany("Tegra 4","4","1.9GHz","20W");
 		});
-
+		
+		function sprawdzOdpowiedz(){
+			if( $('#text').val() == 'fajna' || $('#text').val() == 'dobra' || $('#text').val() == 'git' ) 
+				alert('No i git!');
+			else
+				alert('To nie dobrze!');
+		}
 
 		function wprowadzZmiany(name,core,clock,tdp,ciekawostka)
 		{
 			if(name == 'A4-5300')
 			{
 				$('#Tabela').css('background-color', 'red');
+				/*
+				var tabela = document.getElementById('Tabela');
+				var x = document.getElementById('C');
+
+				var newElement = document.createElement('td'	);
+				newElement.innerHTML = "Mam ten procesor w laptopie";
+				tabela.insertBefore(newElement,x)
+				*/
 				
+
+				if($('#Tabela').text().substring(0,16) != 'Mam ten procesor')
+				{
+				var newItem = document.createElement("text");
+				newItem.setAttribute("id", "T");
+				var textnode = document.createTextNode("Mam ten procesor");
+				
+				newItem.appendChild(textnode);
+				
+				var tabela = document.getElementById("Tabela");
+				tabela.insertBefore(newItem, tabela.childNodes[0]);
+				}
 			}
+
+
 			if(name == 'i3-2120')
+			{
+				if($('#Tabela').text().substring(0,16) == 'Mam ten procesor')
+				{
+					$('#T').text('');
+
+				}
 				$('#Tabela').css('background-color', 'lightblue');
-			
+			}
 			if(name == 'Tegra 4')
+			{
+				if($('#Tabela').text().substring(0,16) == 'Mam ten procesor')
+				{
+					$('#T').text('');
+
+				}
 				$('#Tabela').css('background-color', 'lightgreen');
+			}
 			
 			$('#Name').text(name);
 			$('#Core').text(core);
@@ -102,7 +155,7 @@ th, td {
 					  <th>Name</th>
 					  <td id = "Name">Kliknij w obrazek</td>
 					</tr>
-					<tr>
+					<tr class="wyroznij">
 					  <th>Cores:</th>
 					  <td id = "Core">Kliknij w obrazek</td>
 					</tr>
@@ -110,7 +163,7 @@ th, td {
 						<th>Clock speed</th>
 						<td id = "Clock">Kliknij w obrazek</td>
 					</tr>
-					<tr>
+					<tr class="wyroznij" id = "C">
 						<th >TDP</th>
 						<td id = "TDP">Kliknij w obrazek</td>
 					</tr>
@@ -122,7 +175,12 @@ th, td {
 
 			<a href="index.html">Powrot do strony glownej</a>
     </main>
-    
+	
+	<section>
+		<label>Czy strona się podoba</label>
+		<input type="text" id="text"/>
+		<button id = "odp" onclick="sprawdzOdpowiedz()"> Odpowiedź </button>
+	</section>
     
 
     <footer>
