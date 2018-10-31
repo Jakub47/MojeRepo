@@ -1,0 +1,35 @@
+﻿@model List<Blog.ViewModel.PostViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li><strong>@item.Post.Title</strong></li>
+        <li>@item.Post.Body</li>
+        foreach(var comment in item.KomentarzePosta)
+        {
+           <p style="color: red;">@comment.Body</p>
+        }
+
+        using (Ajax.BeginForm("Index" ,  new AjaxOptions {
+            HttpMethod = "POST",
+            Confirm = "Potwierdź",
+            OnSuccess = "alert('dasdas')",
+        }))
+        {
+            { Model[Model.Count-1].Komentarz.PostID = item.Post.PostID; }
+
+            @Html.HiddenFor(m => Model[0].Komentarz.PostID)
+
+            <p>Dodaj Komentarz</p>
+                @Html.TextAreaFor(m => Model[0].Komentarz.Body)
+             <button type="submit">Dodaj Komentarz</button>
+            }
+        }
+
+</ul>
+
+
