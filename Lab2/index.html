@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+	<title>My test page</title>
+	<link rel="stylesheet" type="text/css" href="styles/styles.css">
+	<script src="scripts/app.js"></script>
+
+  </head>
+  <body>
+	<h1> Strona sprawdzająca poziom IQ! </h1>
+	<a href="drugaStrona.html" id="linkG">Przejdź do strony z procesorami</a>
+	<hr/>
+	
+	<div id="Pytanie1">
+	<h2>Pytanie 1 : Co to za zwierze?</h2>
+	
+    <img src="images/m.jpg" width="200" height="200" alt="Kot">
+	
+	<input type="text" id="zwierze">
+	<input id = "pytanie1" style="margin-left: 10px;" type="submit" onclick="sprawdzZwierze()" value = "Sprawdz Zwierze"/>
+	
+	<span id = "Odpowiedz"></span>
+	</div>
+	
+	<hr/>
+	
+	<h2> Pytanie 2 : Ile wynosi?</h2>
+	
+	<div id = "Pytanie2">
+		
+		<div id = "Dod">
+		2 + 2 =  <input type="text" id="dodawanie">
+		<input id = "dodaj" style="margin-left: 10px;" type="submit" onclick="sprawdzDodawanie()" value = "Sprawdz Dodawanie"/> 
+		<span id = "WynikDodawania" class = "wy"></span>
+		</div>
+		
+		<div id = "Odej">
+		8 - 3 =  <input type="text" id="odejmowanie">
+		<input id = "odejmij" style="margin-left: 10px;" type="submit" onclick="sprawdzOdejmowanie()" value = "Sprawdz Odejmowanie"/>
+		<span id = "WynikOdejmowania" class = "wy"></span>
+		</div>
+		
+	</div>
+	
+
+	
+	<div id = "footer">
+		Stronę przygotował Jakub Bergmann!
+	</div>
+	
+  </body>
+</html>
