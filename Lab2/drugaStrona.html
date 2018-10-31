@@ -1,0 +1,229 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Your Website</title>
+
+	<style>
+
+		#text:focus { color: white; background-color: black }
+
+		.imgpr
+		{
+			width: 400px;
+			height: 400px;
+		}
+		.imgpr:hover
+		{
+			cursor: pointer;
+			background:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(myimage.png);
+
+		}
+		table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+	}
+th, td {
+    padding: 5px;
+    text-align: left;    
+}	
+	  tr.wyroznij
+	  {
+		  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+		  font-size: 4mm;
+	  }
+	</style>	
+	<script src="scripts/jquery.js"></script>
+
+	<script>
+		$(function() 
+		{
+			
+		});
+
+		$("#a4").click(function() 
+		{
+			wprowadzZmiany("A4-5300","2","3.4GHz","85W");
+			
+		});
+
+		$("#i3").click(function() 
+		{
+			wprowadzZmiany("i3-2120","2","3.3GHz","65W");
+		});
+
+		$("#t4").click(function() 
+		{
+			wprowadzZmiany("Tegra 4","4","1.9GHz","20W");
+		});
+		
+		function sprawdzOdpowiedz(){
+			if( $('#text').val() == 'fajna' || $('#text').val() == 'dobra' || $('#text').val() == 'git' ) 
+				alert('No i git!');
+			else
+				alert('To nie dobrze!');
+		}
+
+		function wprowadzZmiany(name,core,clock,tdp,ciekawostka)
+		{
+			if(name == 'A4-5300')
+			{
+				$('#Tabela').css('background-color', 'red');
+				/*
+				var tabela = document.getElementById('Tabela');
+				var x = document.getElementById('C');
+
+				var newElement = document.createElement('td'	);
+				newElement.innerHTML = "Mam ten procesor w laptopie";
+				tabela.insertBefore(newElement,x)
+				*/
+				
+
+				if($('#Tabela').text().substring(0,16) != 'Mam ten procesor')
+				{
+				var newItem = document.createElement("text");
+				newItem.setAttribute("id", "T");
+				var textnode = document.createTextNode("Mam ten procesor");
+				
+				newItem.appendChild(textnode);
+				
+				var tabela = document.getElementById("Tabela");
+				tabela.insertBefore(newItem, tabela.childNodes[0]);
+				}
+			}
+
+
+			if(name == 'i3-2120')
+			{
+				if($('#Tabela').text().substring(0,16) == 'Mam ten procesor')
+				{
+					$('#T').text('');
+
+				}
+				$('#Tabela').css('background-color', 'lightblue');
+			}
+			if(name == 'Tegra 4')
+			{
+				if($('#Tabela').text().substring(0,16) == 'Mam ten procesor')
+				{
+					$('#T').text('');
+
+				}
+				$('#Tabela').css('background-color', 'lightgreen');
+			}
+			
+			$('#Name').text(name);
+			$('#Core').text(core);
+			$('#Clock').text(clock);
+			$('#TDP').text(tdp);
+			$('#Ciekawostka').text(ciekawostka);
+		}
+	</script>
+</head>
+
+<body>
+	
+    <header style="width: 1300px; height: 150mm;">	
+		<h1 style = "background-color: red; padding: 10px; text-align: center; font-size: 33px;">Procesory</h1>
+		<blockquote style = "text-align: right; font-style: italic;">
+			It starts with more powerful processors. Where it goes is up to you <hr/>
+		</blockquote>
+		<nav style="float:left;">
+
+			<div onclick="wprowadzZmiany('A4-5300','2','3.4GHz','85W', 'Dwurdzeniowy procesor 64-bitowy przeznaczony dla komputerów stacjonarnych, o częstotliwości taktowania 3.4 GHz (z technologią turbo do 3.6 GHz). Posiada 1 MB pamięci podręcznej L2 oraz wykorzystuje gniazdo Socket FM2.')" id="a4" style="float:left;">
+				<img class="imgpr" src="images/amd_a4_5300.jpg" >
+			</div>
+
+			<div onclick="wprowadzZmiany('i3-2120','2','3.3GHz','65W', 'The Intel Core i3-2120 is based on the 32nm ‘Sandy Bridge’ architecture and is a 3.3GHz dual-core processor with Hyper-Threading. Read more at http://www.legitreviews.com/intel-core-i3-2120-3-3ghz-sandy-bridge-processor-review_1650#0MkThmWaD4sOZZBe.99');" id = "i3" style="float:left;">
+				<img class="imgpr" src="images/inteli3_2120.jpg">
+			</div>
+
+			<div onclick="wprowadzZmiany('Tegra 4','4','1.9GHz','20W', 'The Tegra 4 was a mobile integrated graphics solution by NVIDIA, launched in August 2013. Built on the 28 nm process, and based on the Tegra 4 graphics processor, in its Tegra 4 variant, the device does not support DirectX')" id = "t4" style="float:left;">
+				<img class="imgpr" src="images/tegra4-638014854469d885ca461b856.png">
+			</div>
+		</nav>	
+		<div style="clear:both;"></div>
+		  
+    </header>
+
+	<hr/>
+    <main>
+			<table style="width:100%;" id = "Tabela">
+					<tr>
+					  <th>Name</th>
+					  <td id = "Name">Kliknij w obrazek</td>
+					</tr>
+					<tr class="wyroznij">
+					  <th>Cores:</th>
+					  <td id = "Core">Kliknij w obrazek</td>
+					</tr>
+					<tr>
+						<th>Clock speed</th>
+						<td id = "Clock">Kliknij w obrazek</td>
+					</tr>
+					<tr class="wyroznij" id = "C">
+						<th >TDP</th>
+						<td id = "TDP">Kliknij w obrazek</td>
+					</tr>
+			</table>
+
+			<aside>
+				<p id = "Ciekawostka">Ciekawostka[Proszę kliknąć w obrazek]</p>	
+			</aside>
+
+			<a href="index.html">Powrot do strony glownej</a>
+    </main>
+	
+	<section>
+		<label>Czy strona się podoba</label>
+		<input type="text" id="text"/>
+		<button id = "odp" onclick="sprawdzOdpowiedz()"> Odpowiedź </button>
+	</section>
+    
+
+    <footer>
+            <p>Copyright 2009 Jakub Bergmann</p>
+    </footer>
+
+	<!-- <header>
+		<nav>
+			<ul>
+				<li>Your menu</li>
+			</ul>
+		</nav>
+	</header>
+	
+	<section>
+	
+		<article>
+			<header>
+				<h2>Article title</h2>
+				<p>Posted on <time datetime="2009-09-04T16:31:24+02:00">September 4th 2009</time> by <a href="#">Writer</a> - <a href="#comments">6 comments</a></p>
+			</header>
+			<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+		</article>
+		
+		<article>
+			<header>
+				<h2>Article title</h2>
+				<p>Posted on <time datetime="2009-09-04T16:31:24+02:00">September 4th 2009</time> by <a href="#">Writer</a> - <a href="#comments">6 comments</a></p>
+			</header>
+			<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+		</article>
+		
+	</section>
+
+	<aside>
+		<h2>About section</h2>
+		<p>Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+	</aside>
+
+	<footer>
+		<p>Copyright 2009 Your name</p>
+	</footer> -->
+
+</body>
+
+</html>
