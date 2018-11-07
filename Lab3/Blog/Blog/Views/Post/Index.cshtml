@@ -4,32 +4,34 @@
     ViewBag.Title = "Index";
 }
 
-<ul>
-    @foreach (var item in Model)
-    {
-        <li><strong>@item.Post.Title</strong></li>
-        <li>@item.Post.Body</li>
-        foreach(var comment in item.KomentarzePosta)
+<div class="container" id="T">
+    <div class="row">
+        @foreach (var item in Model)
         {
-           <p style="color: red;">@comment.Body</p>
+            <div class="col">
+                <strong>@item.Post.Title</strong>
+                @item.Post.Body
+                <span id="Zmien">
+                    @{Html.RenderPartial("_Comments", item.KomentarzePosta);}
+                </span>
+                @*@foreach (var comment in item.KomentarzePosta)
+                    {
+                        <p style="color: red;">@comment.Body</p>
+                    }*@
+
+                @*@{Html.RenderPartial("_CommentForm", Model[Model.Count - 1].Komentarz)}*@
+                @Html.Action("Komentarz", new { id = item.Post.PostID })
+            </div>
         }
+    </div>
+</div>
 
-        using (Ajax.BeginForm("Index" ,  new AjaxOptions {
-            HttpMethod = "POST",
-            Confirm = "Potwierdź",
-            OnSuccess = "alert('dasdas')",
-        }))
-        {
-            { Model[Model.Count-1].Komentarz.PostID = item.Post.PostID; }
-
-            @Html.HiddenFor(m => Model[0].Komentarz.PostID)
-
-            <p>Dodaj Komentarz</p>
-                @Html.TextAreaFor(m => Model[0].Komentarz.Body)
-             <button type="submit">Dodaj Komentarz</button>
-            }
-        }
-
-</ul>
-
+@section Scripts
+{
+    <script>
+        $(function () {
+            $('#T').css("background-color", "blue");
+        });
+    </script>
+}
 

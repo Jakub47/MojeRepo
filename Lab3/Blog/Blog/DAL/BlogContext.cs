@@ -12,8 +12,19 @@ namespace Blog.DAL
     {
         public BlogContext() : base("BlogContext")
         {
-            Database.SetInitializer<BlogContext>(new BlogInitializer());
+
         }
+
+        static BlogContext()
+        {
+            //Database.SetInitializer<BlogContext>(new BlogInitializer());
+        }
+
+        public static BlogContext Create()
+        {
+            return new BlogContext();
+        }
+
         public DbSet<Comment> Komentarz { get; set; }
         public DbSet<Post> Post { get; set; }
         public DbSet<Kategoria> Kategoria { get; set; }
