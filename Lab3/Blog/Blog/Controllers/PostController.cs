@@ -27,6 +27,14 @@ namespace Blog.Controllers
             return View(vm);
         }
 
+        [ChildActionOnly]
+        public PartialViewResult Komentarz(int id)
+        {
+            ViewBag.ID = id;
+            Comment Komentarz = new Comment();
+            return PartialView("_CommentForm", Komentarz);
+        }
+
         [HttpPost]
         public ActionResult Index(Comment Komentarz)
         {
@@ -34,19 +42,9 @@ namespace Blog.Controllers
             db.Komentarz.Add(Komentarz);
             db.SaveChanges();
 
+            var komentarzePosta = db.Komentarz.Where(a => a.PostID == Komentarz.PostID).ToList();
 
-            var posty = db.Post.ToList();
-            var vm = new List<PostViewModel>();
-
-            posty.ForEach(a =>
-            new PostViewModel()
-            {
-                Post = a,
-                KomentarzePosta = db.Komentarz.Where(c => c.PostID == a.PostID).ToList(),
-                Komentarz = new Comment()
-            });
-
-            return View(vm);
+            return PartialView("_Comments", komentarzePosta);
         }
     }
 }

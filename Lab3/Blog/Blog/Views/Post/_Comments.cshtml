@@ -1,0 +1,6 @@
+﻿@model List<Blog.Models.Comment>
+
+    @foreach (var item in Model)
+    {
+        <p style="color:red;">@item.Body</p>
+    }

@@ -1,0 +1,18 @@
+﻿@model Blog.Models.Comment
+
+@using (Ajax.BeginForm("Index", new AjaxOptions
+{
+    HttpMethod = "POST",
+    Confirm = "Potwierdź",
+    OnSuccess = "alert('dasdas')",
+    UpdateTargetId = "Zmien"
+}))
+{
+    { Model.PostID = ViewBag.ID; }
+
+    @Html.HiddenFor(m => m.PostID)
+
+    <p>Dodaj Komentarz</p>
+    @Html.TextAreaFor(m => m.Body)
+    <button type="submit">Dodaj Komentarz</button>
+}
