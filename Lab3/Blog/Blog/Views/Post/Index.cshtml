@@ -11,16 +11,8 @@
             <div class="col">
                 <strong>@item.Post.Title</strong>
                 @item.Post.Body
-                <span id="Zmien">
-                    @{Html.RenderPartial("_Comments", item.KomentarzePosta);}
-                </span>
-                @*@foreach (var comment in item.KomentarzePosta)
-                    {
-                        <p style="color: red;">@comment.Body</p>
-                    }*@
-
-                @*@{Html.RenderPartial("_CommentForm", Model[Model.Count - 1].Komentarz)}*@
-                @Html.Action("Komentarz", new { id = item.Post.PostID })
+                @{Html.RenderPartial("_Comments", item.KomentarzePosta);}
+                @Html.Action("Komentarz", new { id = item.Post.PostID})
             </div>
         }
     </div>
@@ -29,9 +21,40 @@
 @section Scripts
 {
     <script>
-        $(function () {
+        $(function ()
+        {
             $('#T').css("background-color", "blue");
         });
+
+
+        function Usun(ele)
+        {
+            $ele = $(ele);
+            $komentarzID = $ele.prev().prev().prev().attr('name');
+            $.ajax({
+                url: '@Url.Action("Delete", "Post")',
+                data: { komentarzID: $komentarzID },
+                success: function (data)
+                {
+                    $('#').html(data);
+                }
+            });
+        }
+
+        function Edytuj(ele)
+        {
+            $ele = $(ele);
+            $komentarzID = $ele.prev().prev().attr('name');
+            $text = $('#getText').val();
+
+            $.ajax({
+                data: { komentarzID: $komentarzID, text: $text },
+                success: function (data)
+                {
+                    $('.UP').html(data);
+                }
+            });
+        }
     </script>
 }
 
