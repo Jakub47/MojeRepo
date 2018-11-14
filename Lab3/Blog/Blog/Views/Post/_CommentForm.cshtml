@@ -5,14 +5,16 @@
     HttpMethod = "POST",
     Confirm = "Potwierdź",
     OnSuccess = "alert('dasdas')",
-    UpdateTargetId = "Zmien"
+    UpdateTargetId = ViewBag.ID2
 }))
 {
-    { Model.PostID = ViewBag.ID; }
+    <div class="form-group">
+        @{ Model.PostID = ViewBag.ID; }
 
-    @Html.HiddenFor(m => m.PostID)
+        @Html.HiddenFor(m => m.PostID)
 
-    <p>Dodaj Komentarz</p>
-    @Html.TextAreaFor(m => m.Body)
-    <button type="submit">Dodaj Komentarz</button>
+        <p>Dodaj Komentarz</p>
+        @Html.TextAreaFor(m => m.Body)
+    </div>
+    <button type="submit" class="btn btn-primary" >Dodaj Komentarz</button>
 }
