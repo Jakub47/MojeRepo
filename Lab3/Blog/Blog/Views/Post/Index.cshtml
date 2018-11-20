@@ -20,7 +20,7 @@
 
 @section Scripts
 {
-    <script>
+<script>
         $(function ()
         {
             $('#T').css("background-color", "blue");
@@ -31,12 +31,19 @@
         {
             $ele = $(ele);
             $komentarzID = $ele.prev().prev().prev().attr('name');
+            $postId = $ele.prev().prev().prev().attr('class');
+
+            
+
             $.ajax({
                 url: '@Url.Action("Delete", "Post")',
                 data: { komentarzID: $komentarzID },
                 success: function (data)
                 {
-                    $('#').html(data);
+                    console.log('#' + $postId);
+                    console.log('-----------------------------');
+                    console.log(data);
+                    $('#' + $postId).replaceWith(data);
                 }
             });
         }
@@ -45,16 +52,19 @@
         {
             $ele = $(ele);
             $komentarzID = $ele.prev().prev().attr('name');
-            $text = $('#getText').val();
+            $text = $ele.prev().val();
+            $postId = $ele.prev().prev().attr('class');
+            $ele.remove();
 
             $.ajax({
                 data: { komentarzID: $komentarzID, text: $text },
                 success: function (data)
                 {
-                    $('.UP').html(data);
+                    console.log($komentarzID);
+                    $('.' + $komentarzID).replaceWith(data);
                 }
             });
         }
-    </script>
+</script>
 }
 

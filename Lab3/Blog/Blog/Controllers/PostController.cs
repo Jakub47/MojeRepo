@@ -23,10 +23,12 @@ namespace Blog.Controllers
                 var postID = kom.PostID;
                 kom.Body = text;
                 db.SaveChanges();
+                ViewBag.Id = postID;
+                //var komentarzePosta = db.Komentarz.Where(a => a.PostID == postID).ToList();
+                List<Comment> komL = new List<Comment>();
+                komL.Add(kom);
 
-                var komentarzePosta = db.Komentarz.Where(a => a.PostID == postID).ToList();
-
-                return PartialView("_Comments", komentarzePosta);
+                return PartialView("_Comments",komL );
             }
 
             var posty = db.Post.ToList();
@@ -80,7 +82,7 @@ namespace Blog.Controllers
             var postID = kom.PostID;
             kom.Body = text;
             db.SaveChanges();
-
+            ViewBag.Id = postID;
             var komentarzePosta = db.Komentarz.Where(a => a.PostID == postID).ToList();
 
             return PartialView("_Comments", komentarzePosta);
