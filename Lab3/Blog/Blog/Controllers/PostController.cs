@@ -1,6 +1,7 @@
 ﻿using Blog.DAL;
 using Blog.Models;
 using Blog.ViewModel;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace Blog.Controllers
         public ActionResult Index(int komentarzID = -1, string text = null)
         {
             //PUT
-            if(Request.IsAjaxRequest())
+            if (Request.IsAjaxRequest())
             {
                 var kom = db.Komentarz.Find(komentarzID);
                 var postID = kom.PostID;
@@ -28,17 +29,20 @@ namespace Blog.Controllers
                 List<Comment> komL = new List<Comment>();
                 komL.Add(kom);
 
-                return PartialView("_Comments",komL );
+                return PartialView("_Comments", komL);
             }
 
             var posty = db.Post.ToList();
             var vm = new List<PostViewModel>();
 
             posty.ForEach(a =>
-            vm.Add(new PostViewModel() { Post = a,
+            vm.Add(new PostViewModel()
+            {
+                Post = a,
                 KomentarzePosta = db.Komentarz.Where(c => c.PostID == a.PostID).ToList(),
-                Komentarz = new Comment() }));
-            
+                Komentarz = new Comment()
+            }));
+
             return View(vm);
         }
 
@@ -59,7 +63,7 @@ namespace Blog.Controllers
             db.SaveChanges();
 
             var komentarzePosta = db.Komentarz.Where(a => a.PostID == Komentarz.PostID).ToList();
-            
+
             return PartialView("_Comments", komentarzePosta);
         }
 
@@ -86,6 +90,23 @@ namespace Blog.Controllers
             var komentarzePosta = db.Komentarz.Where(a => a.PostID == postID).ToList();
 
             return PartialView("_Comments", komentarzePosta);
+        }
+
+
+        public JsonResult WszystkiePosty()
+        {
+            var posty = db.Post.ToList();
+            //var json = JsonConvert.SerializeObject(posty);
+            var list = JsonConvert.SerializeObject(posty,
+    Formatting.None,
+    new JsonSerializerSettings()
+    {
+        ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+    });
+
+
+            return Json(list);
+
         }
     }
 }
