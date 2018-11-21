@@ -148,3 +148,5 @@ C:\Users\Ragnus\Desktop\Studia\Serwisy\MojeRepo\Lab3\Blog\Blog\obj\Debug\Blog.cs
 C:\Users\Ragnus\Desktop\Studia\Serwisy\MojeRepo\Lab3\Blog\Blog\obj\Debug\Blog.csproj.CopyComplete
 C:\Users\Ragnus\Desktop\Studia\Serwisy\MojeRepo\Lab3\Blog\Blog\obj\Debug\Blog.dll
 C:\Users\Ragnus\Desktop\Studia\Serwisy\MojeRepo\Lab3\Blog\Blog\obj\Debug\Blog.pdb
+C:\Users\Ragnus\Desktop\Studia\Serwisy\MojeRepo\Lab3\Blog\Blog\bin\Newtonsoft.Json.dll
+C:\Users\Ragnus\Desktop\Studia\Serwisy\MojeRepo\Lab3\Blog\Blog\bin\Newtonsoft.Json.xml
