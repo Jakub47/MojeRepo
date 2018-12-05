@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace Blog.Controllers
 {
@@ -90,23 +91,6 @@ namespace Blog.Controllers
             var komentarzePosta = db.Komentarz.Where(a => a.PostID == postID).ToList();
 
             return PartialView("_Comments", komentarzePosta);
-        }
-
-
-        public JsonResult WszystkiePosty()
-        {
-            var posty = db.Post.ToList();
-            //var json = JsonConvert.SerializeObject(posty);
-            var list = JsonConvert.SerializeObject(posty,
-    Formatting.None,
-    new JsonSerializerSettings()
-    {
-        ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-    });
-
-
-            return Json(list);
-
         }
     }
 }
