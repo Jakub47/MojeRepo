@@ -1,4 +1,5 @@
 ﻿using Blog.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,7 +9,7 @@ using System.Web;
 
 namespace Blog.DAL
 {
-    public class BlogContext : DbContext
+    public class BlogContext : IdentityDbContext<ApplicationUser>
     {
         public BlogContext() : base("BlogContext")
         {
@@ -30,6 +31,8 @@ namespace Blog.DAL
         public DbSet<Kategoria> Kategoria { get; set; }
         public DbSet<Polubienie> Polubienie { get; set; }
         public DbSet<KategoriaPostu> KategoriaPostu { get; set; }
+        public DbSet<UserBloga> UserBloga { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
