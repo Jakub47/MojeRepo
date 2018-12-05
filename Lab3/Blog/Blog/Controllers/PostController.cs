@@ -92,11 +92,5 @@ namespace Blog.Controllers
 
             return PartialView("_Comments", komentarzePosta);
         }
-
-        public ActionResult Zwroz()
-        {
-            var kom = db.Komentarz.Where(a => a.DataWstawieniaKomentarza < DateTime.Now).ToList();
-            var kate = db.Komentarz.
-        }
     }
 }
