@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace Blog.Controllers
 {
@@ -92,21 +93,10 @@ namespace Blog.Controllers
             return PartialView("_Comments", komentarzePosta);
         }
 
-
-        public JsonResult WszystkiePosty()
+        public ActionResult Zwroz()
         {
-            var posty = db.Post.ToList();
-            //var json = JsonConvert.SerializeObject(posty);
-            var list = JsonConvert.SerializeObject(posty,
-    Formatting.None,
-    new JsonSerializerSettings()
-    {
-        ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-    });
-
-
-            return Json(list);
-
+            var kom = db.Komentarz.Where(a => a.DataWstawieniaKomentarza < DateTime.Now).ToList();
+            var kate = db.Komentarz.
         }
     }
 }
