@@ -8,6 +8,8 @@ namespace Blog
 	{
 		public static void Configure()
 		{
+            ReactSiteConfiguration.Configuration.AddScript("~/Scripts/App.js");
+
 			// If you want to use server-side rendering of React components, 
 			// add all the necessary JavaScript files here. This includes 
 			// your components as well as all of their dependencies.

@@ -16,6 +16,7 @@ namespace Blog.Controllers
         public ActionResult Index()
         {
             var listaPostow = db.Post.ToList();
+            ViewBag.blog = listaPostow;
             return View();
         }
     }

@@ -1,7 +1,25 @@
-﻿
+﻿@using React.Web.Mvc
+
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<!-- react Component -->
+<!-- Hello is react Component-->
+<!---->
+
+<h2>Beact Blog App</h2>
+<div class="container">
+    <div class="row">
+
+        <!--
+            komponents name : Blog
+            props name : bdata
+            -->
+        @Html.React("Blog", new
+    {
+        bdata = ViewBag.blog
+    })
+    </div>
+</div>
 
