@@ -7,7 +7,12 @@
     <meta name="author" content="">
     <title>@ViewBag.Title</title>
 
+
+    <link href="~/Content/Piekny/sticker.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Load font awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
         body {
@@ -37,12 +42,18 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="@Url.Action("Index", "Home")">
-                            Strona główna
+                            <i class="fa fa-home"></i>
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="@Url.Action("Index", "Post")">Posty</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Piekny1", "Home")">Kalendarz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Omnie", "Home")"><i class="fa fa-envelope"></i></a>
                     </li>
                     <li>
                         @Html.Partial("_LoginPartial");
@@ -52,6 +63,17 @@
         </div>
     </nav>
     <!-- Navigation -->
+    
+
+    <!-- The social media icon bar -->
+    <div class="icon-bar">
+        <a href="https://www.facebook.com/profile.php?id=100012822462667&ref=bookmarks" class="facebook"><i class="fa fa-facebook"></i></a>
+        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+        <a href="#" class="google"><i class="fa fa-google"></i></a>
+        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+        <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
+    </div>
+
 
     @RenderBody()
 

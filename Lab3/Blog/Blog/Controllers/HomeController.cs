@@ -19,5 +19,15 @@ namespace Blog.Controllers
             ViewBag.blog = listaPostow;
             return View();
         }
+
+        public ActionResult Piekny1()
+        {
+            return View();
+        }
+
+        public ActionResult Omnie()
+        {
+            return View();
+        }
     }
 }

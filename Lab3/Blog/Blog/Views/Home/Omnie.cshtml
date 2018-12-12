@@ -1,0 +1,104 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-grid.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <style>
+        .container {
+            position: relative;
+            width: 50%;
+        }
+
+        .image {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: .5s ease;
+            background-color: #008CBA;
+        }
+
+        .container:hover .overlay {
+            opacity: 1;
+        }
+
+        .text {
+            color: white;
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <p>Hover over the image to see my name</p>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <img src="~/Content/Piekny/cpu.jpg"  alt="Avatar" class="image" />
+                <div class="overlay">
+                    <div class="text">Witam na mojej stronie!</div>
+                </div>
+            </div>
+            <div class="col-4">
+                
+            </div>
+        </div>
+    </div>
+
+    <h2>Filmik przegrzewajcego sie CPU</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <video autoplay muted loop id="myVideo">
+                    <source src="~/Content/Piekny/CPU%20overheat.mp4" type="video/mp4" />
+                    Your browser does not support HTML5 video.
+                </video>
+            </div>
+            <div class="col-4">
+                <button id="myBtn" class="btn btn-danger" onclick="myFunction()">Pause</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var video = document.getElementById("myVideo");
+        var btn = document.getElementById("myBtn");
+
+        function myFunction() {
+            if (video.paused) {
+                video.play();
+                btn.innerHTML = "Pause";
+            } else {
+                video.pause();
+                btn.innerHTML = "Play";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -194,6 +194,13 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Piekny\CPU overheat.mp4" />
+    <Content Include="Content\Piekny\cpu.jpg" />
+    <Content Include="Content\Piekny\gpu.jpg" />
+    <Content Include="Content\Piekny\ram.jpg" />
+    <Content Include="Content\Piekny\ss1w.css" />
+    <Content Include="Content\Piekny\sticker.css" />
+    <Content Include="Content\Piekny\styl1.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\App.js" />
@@ -242,6 +249,7 @@
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\Piekny\piekny1.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -332,6 +340,8 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Piekny1.cshtml" />
+    <Content Include="Views\Home\Omnie.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
